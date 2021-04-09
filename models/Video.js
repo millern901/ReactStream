@@ -1,11 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const StreamSchema = new Schema({
+const VideosSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId
   },
   title: {
+    type: String,
+    required: true
+  },
+  fileName: {
     type: String,
     required: true
   },
@@ -21,4 +25,4 @@ const StreamSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('stream', StreamSchema);
+module.exports = mongoose.model('video', VideosSchema);

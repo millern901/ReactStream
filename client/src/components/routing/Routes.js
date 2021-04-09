@@ -11,8 +11,8 @@ import Profiles from '../profiles/Profiles';
 import Profile from '../profile/Profile';
 import Posts from '../posts/Posts';
 import Post from '../post/Post';
-import Streams from '../streams/Streams';
-import Stream from '../stream/Stream';
+import Videos from '../videos/Videos';
+import Video from '../video/Video';
 import NotFound from '../layout/NotFound';
 import PrivateRoute from '../routing/PrivateRoute';
 
@@ -32,8 +32,8 @@ const Routes = props => {
         <PrivateRoute exact path="/add-education" component={AddEducation} />
         <PrivateRoute exact path="/posts" component={Posts} />
         <PrivateRoute exact path="/posts/:id" component={Post} />
-        <PrivateRoute exact path="/streams" component={Streams} />
-        <PrivateRoute exact path="/streams/:id" component={Stream} />
+        <PrivateRoute exact path="/videos" component={Videos} />
+        <PrivateRoute exact path="/videos/:id" component={Video} />
         <Route component={NotFound} />
       </Switch>
     </section>

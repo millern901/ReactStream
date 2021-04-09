@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import formatDate from '../../utils/formatDate';
 import { connect } from 'react-redux';
-import { deleteStream } from '../../actions/stream';
 
-const StreamItem = ({
-  deleteStream,
+const VideoItem = ({
   auth,
-  stream: { _id, title, name, avatar, user, date },
+  video: { _id, title, name, avatar, user, date },
   showActions
 }) => (
   <div className="stream bg-white p-1 my-1">
@@ -24,31 +22,21 @@ const StreamItem = ({
 
       {showActions && (
         <Fragment>
-          <Link to={`/streams/${_id}`} className="btn btn-primary">
+          <Link to={`/videos/${_id}`} className="btn btn-primary">
           </Link>
-          {!auth.loading && user === auth.user._id && (
-            <button
-              onClick={() => deleteStream(_id)}
-              type="button"
-              className="btn btn-danger"
-            >
-              <i className="fas fa-times" />
-            </button>
-          )}
         </Fragment>
       )}
     </div>
   </div>
 );
 
-StreamItem.defaultProps = {
+VideoItem.defaultProps = {
   showActions: true
 };
 
-StreamItem.propTypes = {
-  stream: PropTypes.object.isRequired,
+VideoItem.propTypes = {
+  video: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
-  deleteStream: PropTypes.func.isRequired,
   showActions: PropTypes.bool
 };
 
@@ -56,6 +44,6 @@ const mapStateToProps = (state) => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { deleteStream })(
-  StreamItem
+export default connect(mapStateToProps)(
+  VideoItem
 );

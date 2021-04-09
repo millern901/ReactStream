@@ -25,8 +25,8 @@ export const ADD_COMMENT = 'ADD_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 
 
-export const GET_STREAMS = 'GET_STREAMS';
-export const GET_STREAM = 'GET_STREAM';
-export const ADD_STREAM = 'ADD_STREAM';
-export const DELETE_STREAM = 'DELETE_STREAM';
-export const STREAM_ERROR = 'STREAM_ERROR';
+export const GET_VIDEOS = 'GET_VIDEOS';
+export const GET_VIDEO = 'GET_VIDEO';
+export const ADD_VIDEO = 'ADD_VIDEO';
+export const UPLOAD_VIDEO = 'UPLOAD_VIDEO';
+export const VIDEO_ERROR = 'VIDEO_ERROR';
