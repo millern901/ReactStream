@@ -10,8 +10,7 @@ const VideosSchema = new Schema({
     required: true
   },
   fileName: {
-    type: String,
-    required: true
+    type: String
   },
   name: {
     type: String

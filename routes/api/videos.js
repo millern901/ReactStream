@@ -8,7 +8,6 @@ const Video = require('../../models/Video');
 const User = require('../../models/User');
 const checkObjectId = require('../../middleware/checkObjectId');
 
-
 // video store
 let storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -32,7 +31,8 @@ router.post("/upload", (req, res) => {
     if (err) {
       res.status(500).send('Server Error');
     }
-    res.json({ filePath: String(res.req.file.path).split("\\")[1], fileName: res.req.file.filename });
+    console.log(res.req.file.filename);
+    res.json({ fileName: res.req.file.filename });
   });
 });
 

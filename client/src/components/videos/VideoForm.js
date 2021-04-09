@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Dropzone from 'react-dropzone';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 import api from '../../utils/api';
 import { connect } from 'react-redux';
 import { addVideo } from '../../actions/video';
@@ -18,6 +17,7 @@ const VideoForm = ({ addVideo }) => {
         'Content-Type': 'multipart/form-data'
       }
     });
+    console.log('hello');
     setFileName(res.data.fileName);
   };
 
