@@ -5,6 +5,7 @@ const { check, validationResult } = require('express-validator');
 const auth = require('../../middleware/auth');
 
 const Video = require('../../models/Video');
+const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 const checkObjectId = require('../../middleware/checkObjectId');
 
@@ -31,7 +32,7 @@ router.post("/upload", (req, res) => {
     if (err) {
       res.status(500).send('Server Error');
     }
-    console.log(res.req.file.filename);
+
     res.json({ fileName: res.req.file.filename });
   });
 });
@@ -84,6 +85,14 @@ router.post(
     try {
       const user = await User.findById(req.user.id).select('-password');
 
+      // Update the videos in the user profile
+      await Profile.findOneAndUpdate(
+        { user: req.user.id },
+        { $push: { videos: req.body.fileName } },
+        { new: true, upsert: true, setDefaultsOnInsert: true }
+      );
+
+      // Create and save the new video
       const newVideo = new Video({
         title: req.body.title,
         fileName: req.body.fileName,
@@ -91,7 +100,6 @@ router.post(
         avatar: user.avatar,
         user: req.user.id
       });
-
       const video = await newVideo.save();
 
       res.json(video);

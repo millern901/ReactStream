@@ -28,3 +28,10 @@ export const GET_VIDEO = 'GET_VIDEO';
 export const ADD_VIDEO = 'ADD_VIDEO';
 export const UPLOAD_VIDEO = 'UPLOAD_VIDEO';
 export const VIDEO_ERROR = 'VIDEO_ERROR';
+
+// Profile types
+export const GET_PROFILE = 'GET_PROFILE';
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';
+export const CLEAR_PROFILE = 'CLEAR_PROFILE';
+export const PROFILE_ERROR = 'PROFILE_ERROR';
+export const GET_PROFILES = 'GET_PROFILES';
