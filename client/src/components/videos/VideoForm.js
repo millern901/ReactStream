@@ -17,7 +17,6 @@ const VideoForm = ({ addVideo }) => {
         'Content-Type': 'multipart/form-data'
       }
     });
-    console.log('hello');
     setFileName(res.data.fileName);
   };
 

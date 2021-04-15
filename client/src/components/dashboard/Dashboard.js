@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DashboardActions from './DashboardActions';
 import { getCurrentProfile, deleteAccount } from '../../actions/profile';
+import ProfileTop from '../profile/ProfileTop';
+import ProfileAbout from '../profile/ProfileAbout';
+import VideoItem from '../videos/VideoItem';
 
 const Dashboard = ({
   getCurrentProfile,
@@ -17,18 +20,28 @@ const Dashboard = ({
 
   return (
     <Fragment>
-      <h1 className="large text-primary">Dashboard</h1>
+      <h1 className="large text-primary">Profile</h1>
       <p className="lead">
         <i className="fas fa-user" /> Welcome {user && user.name}
       </p>
       {profile !== null ? (
         <Fragment>
-          <DashboardActions />
-          <div className="my-2">
-            <button className="btn btn-danger" onClick={() => deleteAccount()}>
-              <i className="fas fa-user-minus" /> Delete My Account
+          <div className="profile-grid my-1">
+            <ProfileTop profile={profile} />
+            <ProfileAbout profile={profile} />
+            <DashboardActions />
+            <div className="my-2">
+              <button className="btn btn-danger" onClick={() => deleteAccount()}>
+                <i className="fas fa-user-minus" /> Delete My Account
             </button>
+            </div>
+            <div className="streams">
+              {profile.videos.map((video) => (
+                <VideoItem key={video._id} video={video} />
+              ))}
+            </div>
           </div>
+
         </Fragment>
       ) : (
         <Fragment>

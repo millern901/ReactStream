@@ -85,13 +85,6 @@ router.post(
     try {
       const user = await User.findById(req.user.id).select('-password');
 
-      // Update the videos in the user profile
-      await Profile.findOneAndUpdate(
-        { user: req.user.id },
-        { $push: { videos: req.body.fileName } },
-        { new: true, upsert: true, setDefaultsOnInsert: true }
-      );
-
       // Create and save the new video
       const newVideo = new Video({
         title: req.body.title,
@@ -101,6 +94,13 @@ router.post(
         user: req.user.id
       });
       const video = await newVideo.save();
+
+      // Update the videos in the user profile
+      await Profile.findOneAndUpdate(
+        { user: req.user.id },
+        { $push: { videos: video } },
+        { new: true, upsert: true, setDefaultsOnInsert: true }
+      );
 
       res.json(video);
     } catch (err) {
