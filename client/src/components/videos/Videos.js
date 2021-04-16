@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import VideoItem from './VideoItem';
+import VideoForm from './VideoForm';
 import { getVideos } from '../../actions/video';
 
 const Videos = ({ getVideos, video: { videos } }) => {
@@ -16,10 +17,9 @@ const Videos = ({ getVideos, video: { videos } }) => {
       <p className="lead">
         <i className="fas fa-user" /> Welcome to the community
       </p>
-      <div>
-        <Link to='/register' className='btn btn-primary'>
-          Sign Up
-            </Link>
+      <VideoForm />
+      <div className='bg-primary p'>
+              <h3>Videos</h3>
       </div>
       <div className="streams">
         {videos.map((video) => (

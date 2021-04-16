@@ -8,11 +8,9 @@ import Videos from '../videos/Videos';
 import Video from '../video/Video';
 import NotFound from '../layout/NotFound';
 import PrivateRoute from '../routing/PrivateRoute';
-
 import Profiles from '../profiles/Profiles';
 import Profile from '../profile/Profile';
 import ProfileForm from '../profiles/ProfileForm';
-
 
 const Routes = props => {
   return (
@@ -21,16 +19,13 @@ const Routes = props => {
       <Switch>
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
-        <PrivateRoute exact path="/dashboard" component={Dashboard} />
-        <PrivateRoute exact path="/videos" component={Videos} />
-        <PrivateRoute exact path="/videos/:id" component={Video} />
-
-
+        <Route exact path="/profiles" component={Profiles} />
         <Route exact path="/profile/:id" component={Profile} />
+        <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <PrivateRoute exact path="/create-profile" component={ProfileForm} />
         <PrivateRoute exact path="/edit-profile" component={ProfileForm} />
-        <Route exact path="/profiles" component={Profiles} />
-
+        <PrivateRoute exact path="/videos" component={Videos} />
+        <PrivateRoute exact path="/videos/:id" component={Video} />
         <Route component={NotFound} />
       </Switch>
     </section>

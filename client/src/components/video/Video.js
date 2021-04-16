@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import VideoItem from '../videos/VideoItem';
+import CommentForm from './CommentForm';
+import CommentItem from './CommentItem';
 import { getVideo } from '../../actions/video';
 
 const Video = ({ getVideo, video: { video, loading }, match }) => {
@@ -20,6 +22,12 @@ const Video = ({ getVideo, video: { video, loading }, match }) => {
       </Link>
       <video style={{ width: '100%' }} src={`http://localhost:5000/uploads/${video.fileName}`} controls></video>
       <VideoItem video={video} showActions={false} />
+      <div className="comments">
+        {video.comments.map((comment) => (
+          <CommentItem key={comment._id} comment={comment} videoId={video._id} />
+        ))}
+      </div>
+      <CommentForm videoId={video._id} />
     </Fragment>
   );
 };

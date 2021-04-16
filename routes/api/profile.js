@@ -60,7 +60,10 @@ router.post(
         // build a profile
         const profileFields = {
             user: req.user.id,
-            bio: bio,
+            bio:
+                bio && bio !== ''
+                    ? bio
+                    : '',
             website:
                 website && website !== ''
                     ? normalize(website, { forceHttps: true })

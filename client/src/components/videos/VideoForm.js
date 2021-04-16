@@ -7,6 +7,7 @@ import { addVideo } from '../../actions/video';
 
 const VideoForm = ({ addVideo }) => {
   const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const [fileName, setFileName] = useState(null);
 
   const onDrop = async (files) => {
@@ -22,15 +23,16 @@ const VideoForm = ({ addVideo }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    addVideo({ title, fileName });
+    addVideo({ title, description, fileName });
     setTitle('');
+    setDescription('');
     setFileName(null);
   };
 
   return (
     <div className='stream-form'>
       <div className='bg-primary p'>
-        <h3>Create a Stream</h3>
+        <h3>Post a Video</h3>
       </div>
       <form
         className='form my-1'
@@ -54,6 +56,15 @@ const VideoForm = ({ addVideo }) => {
           placeholder='Create a Title'
           value={title}
           onChange={e => setTitle(e.target.value)}
+          required
+        />
+        <textarea
+          name='description'
+          cols='30'
+          rows='5'
+          placeholder='Create a Description'
+          value={description}
+          onChange={e => setDescription(e.target.value)}
           required
         />
         <input type='submit' className='btn btn-dark my-1' value='Submit' />

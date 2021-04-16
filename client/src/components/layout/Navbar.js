@@ -11,7 +11,7 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
         <Link to="/videos">Videos</Link>
       </li>
       <li>
-        <Link to="/profiles">Developers</Link>
+        <Link to="/profiles">Profiles</Link>
       </li>
       <li>
         <Link to="/dashboard">
