@@ -1,6 +1,6 @@
 /* Global Styles */
 :root {
-  --primary-color: #3a1a4d;
+  --primary-color: #8147a3;
   --dark-color: #ab7dd6;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
@@ -324,6 +324,9 @@ button {
 
 .navbar a:hover {
   color: var(--primary-color);
+  align-items: flex-end;
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
 }
 
 .navbar .welcome span {
