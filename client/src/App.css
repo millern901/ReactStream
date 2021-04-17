@@ -1,7 +1,7 @@
 /* Global Styles */
 :root {
-  --primary-color: #17a2b8;
-  --dark-color: #343a40;
+  --primary-color: #3a1a4d;
+  --dark-color: #ab7dd6;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
@@ -303,13 +303,13 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.7rem 2rem;
+  padding: 1rem 2rem;
   position: fixed;
   z-index: 1;
   width: 100%;
   top: 0;
-  border-bottom: solid 1px var(--primary-color);
-  opacity: 0.9;
+  border-bottom: solid 2px var(--primary-color);
+  opacity: 0.95;
 }
 
 .navbar ul {
@@ -317,7 +317,7 @@ button {
 }
 
 .navbar a {
-  color: #fff;
+  color: rgb(255, 255, 255);
   padding: 0.45rem;
   margin: 0 0.25rem;
 }
