@@ -1,5 +1,6 @@
 {
     "mongoURI": "mongodb+srv://nick123:nick123@reactstream.j2fwn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "jwtSecret": "secret",
-    "githubToken": "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"
+    "githubToken": "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",
+    "accessToken": "EAAAEAIWTU_fc46ONqasu9S5TI7s_RvC6-V8oIz8wXPB5mOOB2cqD4VDrejI_JmG"
 }
