@@ -11,6 +11,30 @@ const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 const Video = require('../../models/Video');
 
+// @route    PUT api/profile/subscribers/:id
+// @desc     Subscribe to a user
+// @access   Private
+router.put('/subscribe/:id', auth, checkObjectId('id'), async (req, res) => {
+    try {
+      const profile = await Profile.findById(req.params.id);
+  
+      console.log('here');
+      // Check if the post has already been liked
+      if (profile.subscribers.some((subscriber) => subscriber.user.toString() === req.user.id)) {
+        return res.status(400).json({ msg: 'You are already subscribed' });
+      }
+  
+      profile.subscribers.unshift({ user: req.user.id });
+  
+      await profile.save();
+  
+      return res.json(profile.subscribers);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+});
+
 // @route    GET api/profile/me
 // @desc     Get current users profile
 // @access   Private
@@ -60,10 +84,7 @@ router.post(
         // build a profile
         const profileFields = {
             user: req.user.id,
-            bio:
-                bio && bio !== ''
-                    ? bio
-                    : '',
+            bio: bio,
             website:
                 website && website !== ''
                     ? normalize(website, { forceHttps: true })

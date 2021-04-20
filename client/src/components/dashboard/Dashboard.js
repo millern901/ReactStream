@@ -35,7 +35,7 @@ const Dashboard = ({
             </button>
           </div>
           <div className='bg-primary p'>
-              <h3>{profile.user.name.trim().split(' ')[0]}'s Videos</h3>
+              <h3>{profile.user.name}'s Videos</h3>
             </div>
             <div className="streams">
               {profile.videos.map((video) => (

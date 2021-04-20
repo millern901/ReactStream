@@ -5,11 +5,12 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
-import { getProfileById } from '../../actions/profile';
+import { getProfileById, addSubscribe } from '../../actions/profile';
 import VideoItem from '../videos/VideoItem';
 
 const Profile = ({
   getProfileById,
+  addSubscribe,
   profile: { profile },
   auth,
   match
@@ -40,8 +41,18 @@ const Profile = ({
               </Link>
             </div>
             )}   
+
+          <button
+            onClick={() => addSubscribe(profile._id)}
+            type="button"
+            className="btn btn-light"
+          >
+            Subscribe
+          </button>
+
+
             <div className='bg-primary p'>
-              <h3>{profile.user.name.trim().split(' ')[0]}'s Videos</h3>
+              <h3>{profile.user.name}'s Videos</h3>
             </div>
             <div className="streams">
               {profile.videos.map((video) => (
@@ -57,6 +68,7 @@ const Profile = ({
 
 Profile.propTypes = {
   getProfileById: PropTypes.func.isRequired,
+  addSubscribe: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired
 };
@@ -66,4 +78,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { getProfileById })(Profile);
+export default connect(mapStateToProps, { getProfileById, addSubscribe })(Profile);

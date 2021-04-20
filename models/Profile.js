@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const ProfileSchema = new mongoose.Schema({
     user: {
@@ -14,8 +15,14 @@ const ProfileSchema = new mongoose.Schema({
     videos: {
         type: Array,
         default: []
-    }
-    ,
+    },
+    subscribers: [
+        {
+            user: {
+                type: Schema.Types.ObjectId
+            }
+        }
+    ],
     social: {
         youtube: {
             type: String

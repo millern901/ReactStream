@@ -6,8 +6,27 @@ import {
     GET_PROFILES,
     PROFILE_ERROR,
     CLEAR_PROFILE,
-    ACCOUNT_DELETED
+    ACCOUNT_DELETED,
+    SUBSCRIBE
 } from './types';
+
+// Add subscription
+export const addSubscribe = id => async dispatch => {
+    try {
+      const res = await api.put(`/profile/subscribe/${id}`);
+  
+      dispatch({
+        type: SUBSCRIBE,
+        payload: { id, subscribers: res.data }
+      });
+    } catch (err) {
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: { msg: err.response.statusText, status: err.response.status }
+      });
+    }
+  };
+
 
 // Get current users profile
 export const getCurrentProfile = () => async (dispatch) => {

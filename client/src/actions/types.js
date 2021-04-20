@@ -36,3 +36,4 @@ export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const GET_PROFILES = 'GET_PROFILES';
+export const SUBSCRIBE = 'SUBSCRIBE';

@@ -3,7 +3,8 @@ import {
     GET_PROFILES,
     PROFILE_ERROR,
     CLEAR_PROFILE,
-    UPDATE_PROFILE
+    UPDATE_PROFILE,
+    SUBSCRIBE
 } from '../actions/types';
 
 const initialState = {
@@ -22,6 +23,14 @@ function profileReducer(state = initialState, action) {
             return {
                 ...state,
                 profile: payload,
+                loading: false
+            };
+        case SUBSCRIBE:
+            return {
+                ...state,
+                profiles: state.profiles.map((profile) =>
+                    profile._id === payload.id ? { ...profile, subscribers: payload.subscribers } : profile
+                ),
                 loading: false
             };
         case GET_PROFILES:
