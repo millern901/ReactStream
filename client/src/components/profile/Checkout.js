@@ -1,31 +1,14 @@
 import StripeCheckout from 'react-stripe-checkout';
-
-const stripe = require('stripe')
 const STRIPE_PUBLISHABLE = "pk_test_51IQJj7J37qmk2Gejn9s10LeCsuKOzN5oFpCBRROWmBCg3IkfdJVoKiF4hS0eNSpGLK6lGfbeYd5pqijMU22muHHo00e0VfqHcC";
 
-    const pay = (req) => {
-        try{    
-                const {source} = req.body;
-                const charge = stripe.charges.create({
-                    amount: '4.99',
-                    currency: 'USD',
-                    source: source
-                })
-                if(charge){
-                    console.log('Payment Success?')
-                }
-                if(!charge) throw Error('Payment failed');
-            }
-        catch(err){
-            console.log(err);
-            }
-        }
+const onToken = (user,checkout) => token => 
+    checkout(user, token.id);
 
 
-const Checkout = ({ amount, req }) => 
+const Checkout = ({ amount, user, checkout }) => 
     <StripeCheckout
       amount={amount*100}
-      token={pay(req)}
+      token={onToken(user, checkout)}
       currency='USD'
       stripeKey={STRIPE_PUBLISHABLE}
 />
