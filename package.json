@@ -27,8 +27,10 @@
     "multer": "^1.4.2",
     "node-media-server": "^2.2.4",
     "normalize-url": "^5.3.0",
+    "prop-types": "^15.7.2",
     "shortid": "^2.2.16",
-    "square": "^9.1.0"
+    "square": "^9.1.0",
+    "stripe": "^8.144.0"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",

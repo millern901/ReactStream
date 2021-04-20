@@ -7,6 +7,7 @@ import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
 import { getProfileById } from '../../actions/profile';
 import VideoItem from '../videos/VideoItem';
+import Checkout from './Checkout';
 
 const Profile = ({
   getProfileById,
@@ -47,6 +48,9 @@ const Profile = ({
               {profile.videos.map((video) => (
                 <VideoItem key={video._id} video={video} />
               ))}
+            </div>
+            <div>
+              <Checkout/>
             </div>
           </div>
         </Fragment>
