@@ -1,4 +1,3 @@
-const Order = require('../models/order');
 const config = require('config');
 const stripe = require('stripe')(config.get('StripeAPIKey'));
 
