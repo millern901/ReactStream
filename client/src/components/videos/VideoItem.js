@@ -42,11 +42,9 @@ const VideoItem = ({
             <i className="fas fa-thumbs-down" />
           </button>
           <Link to={`/videos/${_id}`} className="btn btn-primary">
-            Comments:{' '}
-            {comments.length > 0 && (
-              <span className="comment-count">{comments.length}</span>
-            )}
+            Link to Video
           </Link>
+
           {!auth.loading && user === auth.user._id && (
             <button
               onClick={() => deleteVideo(_id)}
@@ -56,6 +54,8 @@ const VideoItem = ({
               <i className="fas fa-times" />
             </button>
           )}
+
+
         </Fragment>
       )}
     </div>

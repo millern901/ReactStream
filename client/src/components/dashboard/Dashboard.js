@@ -34,13 +34,15 @@ const Dashboard = ({
               <i className="fas fa-user-minus" /> Delete My Account
             </button>
           </div>
-          <div className='bg-primary p'>
-              <h3>{profile.user.name}'s Videos</h3>
-            </div>
-            <div className="streams">
-              {profile.videos.map((video) => (
-                <VideoItem key={video._id} video={video} />
-              ))}
+          <div>
+              <div className='bg-primary p'>
+                <h3>{profile.user.name}'s Videos</h3>
+              </div>
+              <div className="streams">
+                {profile.videos.map((video) => (
+                  <VideoItem key={video._id} video={video} />
+                ))}
+              </div>
             </div>
         </Fragment>
       ) : (

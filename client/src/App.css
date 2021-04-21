@@ -1,3 +1,10 @@
+/* styles.css */
+.dropzone {
+  width : 20%;
+  height : 20%;
+  border : 1px solid black;
+}
+
 /* Global Styles */
 :root {
   --primary-color: #8147a3;

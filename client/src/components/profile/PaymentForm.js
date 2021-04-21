@@ -44,26 +44,33 @@ const PaymentForm = ({
             name="name"
             value={name}
             onChange={onChange}
+            required="true"
           />
         </div>
 
         <div className="form-group">
           <input
-            type="number"
+            type="tel"
+            inputmode="numeric" 
+            pattern="[0-9\s]{13,19}" 
+            axlength="19" 
+            placeholder="xxxx xxxx xxxx xxxx"
             placeholder="Card number"
             name="number"
             value={number}
             onChange={onChange}
+            required="true"
           />
         </div>
 
         <div className="form-group">
         <input
-            type="number"
+            type="date"
             placeholder="Expiration date"
             name="expiry"
             value={expiry}
             onChange={onChange}
+            required="true"
           />
         </div>        
         
@@ -74,6 +81,7 @@ const PaymentForm = ({
             name="cvc"
             value={cvc}
             onChange={onChange}
+            required="true"
           />
         </div>
 

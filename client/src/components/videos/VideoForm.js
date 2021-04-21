@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import Dropzone from 'react-dropzone';
 import PropTypes from 'prop-types';
 import api from '../../utils/api';
@@ -38,35 +38,49 @@ const VideoForm = ({ addVideo }) => {
         className='form my-1'
         onSubmit={onSubmit}
       >
-        <Dropzone
-          onDrop={onDrop}
-          multiple={false}>
-          {({ getRootProps, getInputProps }) => (
-            <div style={{ width: '300px', height: '240px', border: '1px solid lightgray', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-              {...getRootProps()}
-            >
-              <input {...getInputProps()} />
-            </div>
-          )}
-        </Dropzone>
         <textarea
           name='title'
-          cols='30'
-          rows='5'
           placeholder='Create a Title'
           value={title}
+          paddingHorizontal='8px'
+          paddingVertical='8px'
+          maxWidth='300px'
+          minWidth='120px'
           onChange={e => setTitle(e.target.value)}
           required
         />
         <textarea
           name='description'
-          cols='30'
-          rows='5'
           placeholder='Create a Description'
           value={description}
+          paddingHorizontal='8px'
+          paddingVertical='8px'
+          maxWidth='300px'
+          minWidth='120px'
           onChange={e => setDescription(e.target.value)}
           required
         />
+        {fileName === null ? (
+        <Dropzone
+          className="dropzone"
+          onDrop={onDrop}
+          multiple={false}>
+          {({ getRootProps, getInputProps }) => (
+            <div style={{ width: '150px', height: '50px', border: '1px solid lightgray', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              {...getRootProps()}
+            > 
+              <input {...getInputProps()} />
+              <p>
+                Upload a Video
+              </p>
+            </div>
+          )}
+        </Dropzone>
+        ) : (
+          <div>
+            Video Uploaded
+          </div>
+        )}
         <input type='submit' className='btn btn-dark my-1' value='Submit' />
       </form>
     </div>

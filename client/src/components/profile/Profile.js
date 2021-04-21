@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
+import DashboardActions from '../dashboard/DashboardActions';
 import { getProfileById, addSubscribe } from '../../actions/profile';
 import VideoItem from '../videos/VideoItem';
 
@@ -28,24 +29,27 @@ const Profile = ({
           <Link to="/profiles" className="btn btn-light">
             Back To Profiles
           </Link>
- 
-          <div className="profile-grid my-1">
+          <Fragment>
             <ProfileTop profile={profile} />
             <ProfileAbout profile={profile} />
-            {auth.isAuthenticated &&
+            <DashboardActions />
+            {auth.user._id !== profile.user._id && (
+            auth.isAuthenticated &&
             auth.loading === false &&
-            auth.user._id === profile.user._id && (
-              <div className='dash-buttons'>
-              <Link to='/edit-profile' className='btn btn-light'>
-                <i className='fas fa-user-circle text-primary' /> Edit Profile
-              </Link>
-            </div>
-            )}   
-            <div className='dash-buttons'>
-              <Link to='/subscribe' className='btn btn-light'>
-                <i className='fas fa-user-circle text-primary' /> Subscribe
-              </Link>
-            </div>
+            profile.subscribers.filter(subscriber => subscriber.user === auth.user._id).length === 0 ? (
+                <div className='dash-buttons'>
+                  <Link to='/subscribe' className='btn btn-light'>
+                    <i className='fas fa-user-circle text-primary' /> Subscribe
+                  </Link>
+                </div>
+            ) : (
+                <Link className="btn btn-primary my-1">
+                  Subscribed
+                </Link>
+            ))}
+          </Fragment>
+
+          <div>
             <div className='bg-primary p'>
               <h3>{profile.user.name}'s Videos</h3>
             </div>
@@ -54,8 +58,8 @@ const Profile = ({
                 <VideoItem key={video._id} video={video} />
               ))}
             </div>
-
           </div>
+
         </Fragment>
       )}
     </Fragment>

@@ -16,13 +16,10 @@ const ProfileSchema = new mongoose.Schema({
         type: Array,
         default: []
     },
-    subscribers: [
-        {
-            user: {
-                type: Schema.Types.ObjectId
-            }
-        }
-    ],
+    subscribers: {        
+        type: Array,
+        default: []
+    },
     social: {
         youtube: {
             type: String
