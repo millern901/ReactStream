@@ -12,9 +12,9 @@ const Landing = ({ isAuthenticated }) => {
     <section className='landing'>
       <div className='dark-overlay'>
         <div className='landing-inner'>
-          <h1 className='x-large'>Streamer Connector</h1>
+          <h1 className='x-large'>DreamStream</h1>
           <p className='lead'>
-            Create a Streaming profile to share videos
+            Create a profile to share videos
           </p>
           <div className='buttons'>
             <Link to='/register' className='btn btn-primary'>
@@ -22,9 +22,6 @@ const Landing = ({ isAuthenticated }) => {
             </Link>
             <Link to='/login' className='btn btn-light'>
               Login
-            </Link>
-            <Link to='/login' className='btn btn-light'>
-              Subscribe
             </Link>
           </div>
         </div>

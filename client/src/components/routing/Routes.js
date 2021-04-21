@@ -10,6 +10,7 @@ import NotFound from '../layout/NotFound';
 import PrivateRoute from '../routing/PrivateRoute';
 import Profiles from '../profiles/Profiles';
 import Profile from '../profile/Profile';
+import PaymentForm from '../profile/PaymentForm';
 import ProfileForm from '../profiles/ProfileForm';
 
 const Routes = props => {
@@ -24,6 +25,7 @@ const Routes = props => {
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <PrivateRoute exact path="/create-profile" component={ProfileForm} />
         <PrivateRoute exact path="/edit-profile" component={ProfileForm} />
+        <PrivateRoute exact path="/subscribe" component={PaymentForm} />
         <PrivateRoute exact path="/videos" component={Videos} />
         <PrivateRoute exact path="/videos/:id" component={Video} />
         <Route component={NotFound} />

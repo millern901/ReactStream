@@ -7,7 +7,6 @@ import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
 import { getProfileById, addSubscribe } from '../../actions/profile';
 import VideoItem from '../videos/VideoItem';
-import Modal from './Modal'
 
 const Profile = ({
   getProfileById,
@@ -42,16 +41,11 @@ const Profile = ({
               </Link>
             </div>
             )}   
-          
-          <button
-            onClick={() => addSubscribe(profile._id)}
-            type="button"
-            className="btn btn-light"
-          >
-            Subscribe
-          </button>
-
-
+            <div className='dash-buttons'>
+              <Link to='/subscribe' className='btn btn-light'>
+                <i className='fas fa-user-circle text-primary' /> Subscribe
+              </Link>
+            </div>
             <div className='bg-primary p'>
               <h3>{profile.user.name}'s Videos</h3>
             </div>
@@ -60,9 +54,7 @@ const Profile = ({
                 <VideoItem key={video._id} video={video} />
               ))}
             </div>
-            <div>
-              <Modal/>
-            </div>
+
           </div>
         </Fragment>
       )}
