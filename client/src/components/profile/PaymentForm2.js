@@ -73,7 +73,7 @@ const PaymentForm2 = ({
 		<div className='Payment__form'>
 			<form onSubmit={onSubmit}>
 				<div className='Payment__form--input'>
-					<label htmlFor='cardNo'>Credit card number</label>
+					<label htmlFor='cardNo'>Card number</label>
 					<input
 						type='text'
 						id='cardNo'
@@ -86,7 +86,7 @@ const PaymentForm2 = ({
 					{formik.touched.cardNo && formik.errors.cardNo ? <div id='error'>{formik.errors.cardNo}</div> : null}
 				</div>
 				<div className='Payment__form--input'>
-					<label htmlFor='name'>Card holder name</label>
+					<label htmlFor='name'>Holder's name</label>
 					<input 
 						type='text'
 						id='name'
@@ -111,7 +111,7 @@ const PaymentForm2 = ({
 					{formik.touched.date && formik.errors.date ? <div id='error'>{formik.errors.date}</div> : null}
 				</div>
 				<div className='Payment__form--input'>
-					<label htmlFor='code'>Security code - CVV</label>
+					<label htmlFor='code'> CVV</label>
 					<input 
 						type='text'
 						id='code'
@@ -123,7 +123,7 @@ const PaymentForm2 = ({
 					/>
 					{formik.touched.code && formik.errors.code ? <div id='error'>{formik.errors.code}</div> : null}
 				</div>				
-                <input type="submit" className="btn btn-primary my-1" Pay/>
+                <input type="submit" className="btn btn-primary my-1" class="buttonHolder" Pay/>
 			</form>
 		</div>
     </div>

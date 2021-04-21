@@ -60,6 +60,13 @@
 	color: white;
 }
 
+
+.buttonHolder{ 
+    text-align: center; 
+    margin-left: 160px;
+}
+
+
 .Payment__btn--two:hover{
 	cursor: pointer;
 }
