@@ -26,38 +26,45 @@ const Profile = ({
         <Spinner />
       ) : (
         <Fragment>
+          <div className="my-1">
           <Link to="/profiles" className="btn btn-light">
             Back To Profiles
           </Link>
+          </div>
           <Fragment>
             <ProfileTop profile={profile} />
             <ProfileAbout profile={profile} />
-            <DashboardActions />
             {auth.user._id !== profile.user._id && (
             auth.isAuthenticated &&
             auth.loading === false &&
             profile.subscribers.filter(subscriber => subscriber.user === auth.user._id).length === 0 ? (
-                <div className='dash-buttons'>
+                <div className='my-1'>
                   <Link to='/subscribe' className='btn btn-light'>
-                    <i className='fas fa-user-circle text-primary' /> Subscribe
+                  <i class="fas fa-external-link-square-alt" /> Subscribe
                   </Link>
                 </div>
             ) : (
                 <Link className="btn btn-primary my-1">
-                  Subscribed
+                  <i className="fas fa-check" /> Subscribed
                 </Link>
             ))}
           </Fragment>
 
-          <div>
+          <div className='my-1'>
             <div className='bg-primary p'>
               <h3>{profile.user.name}'s Videos</h3>
             </div>
+
+
+{profile.videos.length !== 0 && (
             <div className="streams">
               {profile.videos.map((video) => (
                 <VideoItem key={video._id} video={video} />
               ))}
             </div>
+)}
+
+
           </div>
 
         </Fragment>

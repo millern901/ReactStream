@@ -26,24 +26,16 @@ const Dashboard = ({
       </p>
       {profile !== null ? (
         <Fragment>
-          <ProfileTop profile={profile} />
-          <ProfileAbout profile={profile} />
-          <DashboardActions />
-          <div className="my-2">
-            <button className="btn btn-danger" onClick={() => deleteAccount()}>
-              <i className="fas fa-user-minus" /> Delete My Account
-            </button>
-          </div>
-          <div>
-              <div className='bg-primary p'>
-                <h3>{profile.user.name}'s Videos</h3>
-              </div>
-              <div className="streams">
-                {profile.videos.map((video) => (
-                  <VideoItem key={video._id} video={video} />
-                ))}
-              </div>
+          <ProfileTop profile={profile} /> 
+          <ProfileAbout profile={profile} />  
+          <div className="my-1">
+            <DashboardActions /> 
+            <div className="my-1">
+              <button className="btn btn-danger" onClick={() => deleteAccount()}>
+                <i className="fas fa-user-minus" /> Delete My Account
+              </button>
             </div>
+          </div>
         </Fragment>
       ) : (
         <Fragment>
