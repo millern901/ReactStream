@@ -48,7 +48,8 @@ const PaymentForm = ({
         </div>
 
         <div className="form-group">
-          <textarea
+          <input
+            type="number"
             placeholder="Card number"
             name="number"
             value={number}
@@ -57,7 +58,8 @@ const PaymentForm = ({
         </div>
 
         <div className="form-group">
-          <textarea
+        <input
+            type="number"
             placeholder="Expiration date"
             name="expiry"
             value={expiry}
@@ -66,7 +68,8 @@ const PaymentForm = ({
         </div>        
         
         <div className="form-group">
-          <textarea
+        <input
+            type="number"
             placeholder="cvc"
             name="cvc"
             value={cvc}
