@@ -10,7 +10,7 @@ import NotFound from '../layout/NotFound';
 import PrivateRoute from '../routing/PrivateRoute';
 import Profiles from '../profiles/Profiles';
 import Profile from '../profile/Profile';
-import PaymentForm from '../profile/PaymentForm';
+import PaymentForm from '../profile/PaymentForm2';
 import ProfileForm from '../profiles/ProfileForm';
 
 const Routes = props => {

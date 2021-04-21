@@ -48,7 +48,9 @@ const PaymentForm = ({
           />
         </div>
 
+        
         <div className="form-group">
+        <i class="fas fa-credit-card"></i>
           <input
             type="tel"
             inputmode="numeric" 
